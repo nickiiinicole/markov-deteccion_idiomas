@@ -26,13 +26,10 @@ Texto: "el murcielago duerme"
 
 ## Estructura del proyecto
 
-markov-deteccion_idiomas/
-│
-└── src/
-    │
-    └── markov/
-        │
-        └── deteccion_idiomas.py    # Lógica principal
+markov-deteccion_idiomas
+└── src
+    └── markov
+        └── deteccion_idiomas.py
 ---
 
 ## Uso
