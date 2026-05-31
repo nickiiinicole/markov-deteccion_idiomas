@@ -16,3 +16,17 @@ def entrenar_modelo_caracteres(texto):
             probabilidades[actual][siguiente] = conteo / total 
              
     return probabilidades 
+
+def calcular_probabilidad_texto(texto_nuevo, modelo): 
+    texto_nuevo = texto_nuevo.lower().replace(" ", "")
+    puntuacion = 1.0 
+     
+    for i in range(len(texto_nuevo) - 1):
+        actual = texto_nuevo[i] 
+        siguiente = texto_nuevo[i + 1] 
+         
+        # Aplicamos suavizado (0.0001) para evitar multiplicar por 0
+        prob = modelo.get(actual, {}).get(siguiente, 0.0001)
+        puntuacion *= prob 
+         
+    return puntuacion 
