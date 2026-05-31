@@ -15,8 +15,11 @@ El sistema se basa en cadenas de Markov de primer orden sobre secuencias de cara
 ### Ejemplo
 
 Texto: "el murcielago duerme"
+
 → P(español) = 3.2e-12
+
 → P(inglés)  = 1.1e-18
+
 → Resultado: ESPAÑOL ✓
 
 ---
@@ -24,10 +27,9 @@ Texto: "el murcielago duerme"
 ## Estructura del proyecto
 
 markov-deteccion_idiomas/
-└── src/
-└── markov/
-└── deteccion_idiomas.py   # Lógica principal
-
+   └── src/
+        └── markov/
+              └── deteccion_idiomas.py   # Lógica principal
 ---
 
 ## Uso
