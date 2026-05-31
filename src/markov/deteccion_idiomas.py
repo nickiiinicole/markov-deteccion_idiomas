@@ -25,8 +25,32 @@ def calcular_probabilidad_texto(texto_nuevo, modelo):
         actual = texto_nuevo[i] 
         siguiente = texto_nuevo[i + 1] 
          
-        # Aplicamos suavizado (0.0001) para evitar multiplicar por 0
         prob = modelo.get(actual, {}).get(siguiente, 0.0001)
         puntuacion *= prob 
          
     return puntuacion 
+
+if __name__ == "__main__":
+    corpus_es = "el veloz murcielago hindu comia feliz cardillo y kiwi la ciguena tocaba el saxofon" 
+    corpus_en = "the quick brown fox jumps over the lazy dog and the cat sleeps all day long" 
+     
+    matriz_espanol = entrenar_modelo_caracteres(corpus_es) 
+    matriz_ingles = entrenar_modelo_caracteres(corpus_en) 
+     
+    textos_prueba = [
+        "el murcielago duerme", 
+        "the fox is fast" 
+    ] 
+     
+    print("--- RESULTADOS DE DETECCIÓN ---") 
+    for texto in textos_prueba:
+        prob_es = calcular_probabilidad_texto(texto, matriz_espanol)
+        prob_en = calcular_probabilidad_texto(texto, matriz_ingles) 
+         
+        if prob_es > prob_en:
+            idioma = "ESPAÑOL"
+        else: 
+            idioma = "INGLÉS" 
+             
+        print(f"Texto: '{texto}' -> {idioma}")
+
