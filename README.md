@@ -51,7 +51,7 @@ from src.markov.deteccion_idiomas import entrenar_modelo_caracteres, calcular_pr
 
 # 1. Entrenar modelos con corpus de cada idioma
 modelo_es = entrenar_modelo_caracteres("el veloz murcielago hindu comia feliz cardillo y kiwi...")
-modelo_en = entrenar_modelo_caracteres("the quick brown fox jumps over the lazy dog...")
+modelo_en = entrenar_modelo_caracteres("the fast hindu bat happily ate golden thistle and kiwi...")
 
 # 2. Puntuar un texto nuevo
 texto = "hola mundo"
