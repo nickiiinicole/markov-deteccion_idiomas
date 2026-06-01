@@ -1,5 +1,4 @@
 from collections import defaultdict, Counter
-import math
 import os
   
 def leer_archivo(ruta_archivo):
@@ -32,18 +31,16 @@ def entrenar_modelo_caracteres(texto):
 
 def calcular_probabilidad_texto(texto_nuevo, modelo): 
     texto_nuevo = texto_nuevo.lower().replace(" ", "").replace("\n", "") 
-    log_puntuacion = 1.0 
+    puntuacion = 1.0 
      
     for i in range(len(texto_nuevo) - 1):
         actual = texto_nuevo[i] 
         siguiente = texto_nuevo[i + 1] 
          
         prob = modelo.get(actual, {}).get(siguiente, 0.0001)
-        log_puntuacion *= prob 
+        puntuacion *= prob 
          
-    return log_puntuacion 
-
-
+    return puntuacion 
 
 
 if __name__ == "__main__":
